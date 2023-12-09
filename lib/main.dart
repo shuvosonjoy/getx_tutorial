@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'coutner_state_controller.dart';
 
 void main() {
@@ -38,7 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Obx(() => Text(countnerStateController.count.toString()),),
               ElevatedButton(
                   onPressed: () {
-                   countnerStateController.incrementCounter(1);
+                   countnerStateController.updateValue(1);
                   },
                   child: Icon(Icons.add)),
             ],

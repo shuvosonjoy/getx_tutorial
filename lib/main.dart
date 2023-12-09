@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'coutner_state_controller.dart';
+
 void main() {
   runApp(myApp());
 }
@@ -43,13 +45,5 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
     );
-  }
-}
-
-class CountnerStateController{
-
-  RxInt count =0.obs;
-  void incrementCounter(int value){
-    count+=value;
   }
 }

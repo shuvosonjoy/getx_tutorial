@@ -24,7 +24,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  RxInt count = 0.obs;
+  CountnerStateController countnerStateController = CountnerStateController();
 
   @override
   Widget build(BuildContext context) {
@@ -33,15 +33,23 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Obx(() => Text(count.toString())),
+              Obx(() => Text(countnerStateController.count.toString()),),
               ElevatedButton(
                   onPressed: () {
-                    count++;
+                   countnerStateController.incrementCounter(1);
                   },
                   child: Icon(Icons.add)),
             ],
           ),
         ),
     );
+  }
+}
+
+class CountnerStateController{
+
+  RxInt count =0.obs;
+  void incrementCounter(int value){
+    count+=value;
   }
 }

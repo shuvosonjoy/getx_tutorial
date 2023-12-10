@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx/coutner_state_controller.dart';
 import 'package:getx/second_screen.dart';
+import 'package:getx/third_screen.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class SecondScreen extends StatefulWidget {
+  const SecondScreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<SecondScreen> createState() => _SecondScreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _SecondScreenState extends State<SecondScreen> {
   CounterStateController counterStateController = Get.find<CounterStateController>();
 
 
@@ -24,20 +25,20 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('First Screen',style: TextStyle(
-          fontWeight: FontWeight.bold,
-          fontSize: 20
-        ),),
+            Text('Second Screen',style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20
+            ),),
             GetBuilder<CounterStateController>(
                 builder: (controller) {
                   return Text(controller.count.toString());
                 }
             ),
             ElevatedButton(
-                onPressed: () {
-                  Get.to(SecondScreen());
-                },
-                child: Text('Second Screen'),
+              onPressed: () {
+                Get.to(ThirdScreen());
+              },
+              child: Text('Third Screen'),
             ),
           ],
         ),

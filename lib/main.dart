@@ -2,27 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'coutner_state_controller.dart';
 
-void main() {
+void main(){
   runApp(myApp());
 }
-
-class GetxDependencyBinder extends Bindings{
-  @override
-  void dependencies() {
-  Get.put(CounterStateController());
-  }
-  
-}
-
 
 class myApp extends StatelessWidget {
   const myApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return  GetMaterialApp(
+    return const MaterialApp(
       home: HomeScreen(),
-      initialBinding: GetxDependencyBinder(),
     );
   }
 }
@@ -35,9 +25,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CounterStateController counterStateController = Get.find<CounterStateController>();
-
-
+  CounterStateController counterStateController = CounterStateController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,14 +33,10 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<CounterStateController>(
-              builder: (controller) {
-                return Text(controller.count.toString());
-              }
-            ),
+            Obx(() => Text(counterStateController.count.toString()),),
             ElevatedButton(
                 onPressed: () {
-                  counterStateController.updateValue(1);
+                  counterStateController.incrementCounter(1);
                 },
                 child: Icon(Icons.add)),
           ],
@@ -61,3 +45,4 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+

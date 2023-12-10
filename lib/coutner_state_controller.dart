@@ -1,12 +1,11 @@
-
 import 'package:get/get.dart';
 
-class CounterStateController extends GetxController{
+class CounterStateController{
+  RxInt _count =0.obs;
+  RxInt get count => _count;
+  void incrementCounter(int value){
 
-  int _count =0;
-  int get count => _count;
-  void updateValue(int value){
-    _count+=value;
-    update();
+      _count+=value;
+
   }
 }

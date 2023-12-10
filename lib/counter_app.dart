@@ -4,6 +4,9 @@ import 'package:getx/coutner_state_controller.dart';
 import 'package:getx/homescreen.dart';
 
 
+
+
+
 class CounterApp extends StatelessWidget {
   const CounterApp({super.key});
 
@@ -18,7 +21,6 @@ class CounterApp extends StatelessWidget {
 
 
 class GetxDependencyBinder extends Bindings{
-
   @override
   void dependencies() {
     Get.put(CounterStateController());

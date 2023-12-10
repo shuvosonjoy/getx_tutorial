@@ -25,24 +25,29 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CountnerStateController countnerStateController = CountnerStateController();
+  CountnerStateController countnerStateController = Get.put(CountnerStateController());
+
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Obx(() => Text(countnerStateController.count.toString()),),
-              ElevatedButton(
-                  onPressed: () {
-                   countnerStateController.updateValue(1);
-                  },
-                  child: Icon(Icons.add)),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            GetBuilder<CountnerStateController>(
+              builder: (controller) {
+                return Text(controller.count.toString());
+              }
+            ),
+            ElevatedButton(
+                onPressed: () {
+                  countnerStateController.updateValue(1);
+                },
+                child: Icon(Icons.add)),
+          ],
         ),
+      ),
     );
   }
 }

@@ -1,7 +1,7 @@
 
 import 'package:get/get.dart';
 
-class CountnerStateController extends GetxController{
+class CounterStateController extends GetxController{
 
   int _count =0;
   int get count => _count;

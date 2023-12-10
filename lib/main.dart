@@ -6,13 +6,23 @@ void main() {
   runApp(myApp());
 }
 
+class GetxDependencyBinder extends Bindings{
+  @override
+  void dependencies() {
+  Get.put(CounterStateController());
+  }
+  
+}
+
+
 class myApp extends StatelessWidget {
   const myApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return  GetMaterialApp(
       home: HomeScreen(),
+      initialBinding: GetxDependencyBinder(),
     );
   }
 }
@@ -25,7 +35,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  CountnerStateController countnerStateController = Get.put(CountnerStateController());
+  CounterStateController counterStateController = Get.find<CounterStateController>();
 
 
   @override
@@ -35,14 +45,14 @@ class _HomeScreenState extends State<HomeScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            GetBuilder<CountnerStateController>(
+            GetBuilder<CounterStateController>(
               builder: (controller) {
                 return Text(controller.count.toString());
               }
             ),
             ElevatedButton(
                 onPressed: () {
-                  countnerStateController.updateValue(1);
+                  counterStateController.updateValue(1);
                 },
                 child: Icon(Icons.add)),
           ],

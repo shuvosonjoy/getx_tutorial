@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'coutner_state_controller.dart';
 
+
 void main(){
   runApp(myApp());
 }

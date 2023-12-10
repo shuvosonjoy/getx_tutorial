@@ -51,7 +51,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
             ElevatedButton(
               onPressed: () {
                 Get.offAll(HomeScreen()); ///pushAndRemoveUntil
-
               },
               child: Text('First Screen(offAll)'),
 

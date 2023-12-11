@@ -25,7 +25,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<bool> isClickedList = List.generate(20, (index) => false);
+
 
   @override
   Widget build(BuildContext context) {
@@ -57,4 +57,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-

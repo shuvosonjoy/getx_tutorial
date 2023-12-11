@@ -1,46 +1,43 @@
+import 'package:appifylab_task/click_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ClickableContainerGrid extends StatefulWidget {
-  @override
-  _ClickableContainerGridState createState() => _ClickableContainerGridState();
-}
+class ClickableContainerGrid extends StatelessWidget {
+  final ClickController myController = Get.put(ClickController());
 
-class _ClickableContainerGridState extends State<ClickableContainerGrid> {
   // Number of containers in the grid
   final int numberOfContainers = 20;
 
-  // List to track the clicked status for each container
-  List<bool> isClickedList = List.generate(20, (index) => false);
-
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 8,
-      ),
-      itemCount: numberOfContainers,
-      itemBuilder: (BuildContext ctx, index) {
-        return InkWell(
-          onTap: () {
-
-              isClickedList[index] = !isClickedList[index];
-            setState(() {
-
-            });
-          },
-          child: Container(
-            margin: EdgeInsets.all(5),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
-              color: isClickedList[index] ? Colors.grey : Colors.black,
-            ),
-            child: Text(
-              (index + 1).toString(),
-              style: TextStyle(color: Colors.white),
-            ),
+    return GetBuilder<ClickController>(
+      builder: (controller) {
+        return GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 8,
           ),
+          itemCount: numberOfContainers,
+          itemBuilder: (BuildContext context, index) {
+            return InkWell(
+              onTap: () {
+                myController.checkButton(index);
+
+              },
+              child: Container(
+                margin: EdgeInsets.all(5),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: myController.isClickedList[index] ? Colors.grey : Colors.black,
+                ),
+                child: Text(
+                  (index + 1).toString(),
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            );
+          },
         );
-      },
+      }
     );
   }
 }

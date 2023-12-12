@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 
 class PowerPlaySection extends StatelessWidget {
   final String title;
+  final int mapKey;
 
-  PowerPlaySection(this.title);
+  PowerPlaySection(this.title, this.mapKey);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class PowerPlaySection extends StatelessWidget {
         ),
         SizedBox(height: 15),
         Expanded(
-          child: ClickableContainerGrid(),
+          child: ClickableContainerGrid(mapKey: mapKey,),
         ),
       ],
     );

@@ -1,6 +1,6 @@
 import 'package:appifylab_task/powerplay_section.dart';
 import 'package:flutter/material.dart';
-import 'package:appifylab_task/powerplay_screen.dart';
+
 
 void main() {
   runApp(myApp());
@@ -30,7 +30,9 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
+        backgroundColor: Colors.black,
         leading: IconButton(
           onPressed: () {},
           icon: Icon(Icons.chevron_left),
@@ -38,17 +40,18 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Start Powerplay Overs'),
       ),
       body: Container(
+
         margin: EdgeInsets.all(10),
         child: Column(
           children: [
             Expanded(
-              child: PowerPlaySection('PowerPlay 1'),
+              child: PowerPlaySection('PowerPlay 1',1),
             ),
             Expanded(
-              child: PowerPlaySection('PowerPlay 2'),
+              child: PowerPlaySection('PowerPlay 2',2),
             ),
             Expanded(
-              child: PowerPlaySection('PowerPlay 3'),
+              child: PowerPlaySection('PowerPlay 3',3),
             ),
 
           ],

@@ -16,8 +16,8 @@ class PowerPlaySection extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 20,
+            color: Colors.white,
+            fontSize: 14,
             fontWeight: FontWeight.bold,
           ),
         ),

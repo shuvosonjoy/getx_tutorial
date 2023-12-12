@@ -1,4 +1,4 @@
-import 'package:appifylab_task/click_controller.dart';
+import 'package:appifylab_task/controller/click_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -67,7 +67,6 @@ class ClickableContainerGrid extends StatelessWidget {
                     ? Colors.yellow
                     : Color(0xff333232),),
 
-                color: Colors.black,
               ),
               child: Text(
                 (index + 1).toString(),
